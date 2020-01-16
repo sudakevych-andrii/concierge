@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'concierge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'concierge_db',
-        'USER': 'concierge_dev',
-        'PASSWORD': 'simplepass',
-        'HOST': 'db',
+        'NAME': 'concierge_hw_db',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'HOST': 'localhost',
         'PORT': 5432,
         'TEST': {
             'HOST': 'db',
