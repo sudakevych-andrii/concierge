@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from django.views.generic import TemplateView
 
 from .views import health_check
 
@@ -29,4 +30,6 @@ static_patterns = static(settings.MEDIA_URL,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('healthcheck/', health_check, name='health_check'),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('tenants/', include('mycore.urls', namespace='tenants')),
 ] + static_patterns

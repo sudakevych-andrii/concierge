@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Tenants</h1>
+    <ul>
+        {% for tenant in data %}
+            <li><a href="{{ tenant.pk }}">{{ tenant.fields.first_name }} {{ tenant.fields.last_name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
