@@ -7,7 +7,7 @@ from .models import Tenant, Room, Journal
 class TenantForm(Form):
     first_name = CharField()
     last_name = CharField()
-    date_of_birth = DateField()
+    date_of_birth = CharField()
     phone = CharField()
 
     def save_tenant(self):

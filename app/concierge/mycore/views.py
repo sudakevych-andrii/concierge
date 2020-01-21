@@ -35,7 +35,7 @@ class TenantFormView(FormView):
 
     def form_valid(self, form):
         form.save_tenant()
-        return super(TenantFormView, self).form_valid(form)
+        return super().form_valid(form)
 
 
 class RoomsView(ListView):
@@ -83,6 +83,7 @@ class JournalView(ListView):
         context = super(JournalView, self).get_context_data(**kwargs)
         context['tenants'] = Tenant.objects.all()
         context['rooms'] = Room.objects.all()
+        context['form'] = JournalForm
         return context
 
 
@@ -91,6 +92,11 @@ class JournalFormView(FormView):
     form_class = JournalForm
     success_url = 'core/journal'
 
+    def form_invalid(self, form):
+        print('11111111')
+        return super(JournalFormView, self).form_invalid(form)
+
     def form_valid(self, form):
+        print('222222')
         form.save_journal()
         return super(JournalFormView, self).form_valid(form)

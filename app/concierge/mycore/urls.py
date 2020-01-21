@@ -2,8 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from .views import TenantsView, TenantView, RoomsView, RoomView, RoomFormView, TenantFormView, JournalView, \
-    JournalFormView
+from .views import TenantsView, TenantView, RoomsView, RoomView, RoomFormView, TenantFormView, JournalView, JournalFormView
 
 static_patterns = static(settings.MEDIA_URL,
                          document_root=settings.MEDIA_ROOT) + \

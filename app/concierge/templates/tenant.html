@@ -4,8 +4,12 @@
 
 {% block content %}
     <div>{{ tenant.first_name }} {{ tenant.last_name }}</div>
-    <div>{{ tenant.data.date_of_birth }}</div>
-    <div>{{ tenant.data.phone }}</div>
+    {% if tenant.date_of_birth %}
+        <div>Date of birth: {{ tenant.date_of_birth }}</div>
+    {% endif %}
+    {% if tenant.phone %}
+        <div>Phone: {{ tenant.phone }}</div>
+    {% endif %}
     <hr>
     <a href="/core/tenants">Back to tenants list</a>
 {% endblock content %}
