@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tenant</title>
-</head>
-<body>
-    <div>{{ data.first_name }} {{ data.last_name }}</div>
-    <div>{{ data.date_of_birth }}</div>
-    <div>{{ data.phone }}</div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} {{ tenant.first_name }} {{ tenant.last_name }} {% endblock title %}
+
+{% block content %}
+    <div>{{ tenant.first_name }} {{ tenant.last_name }}</div>
+    <div>{{ tenant.data.date_of_birth }}</div>
+    <div>{{ tenant.data.phone }}</div>
+    <hr>
+    <a href="/core/tenants">Back to tenants list</a>
+{% endblock content %}
+

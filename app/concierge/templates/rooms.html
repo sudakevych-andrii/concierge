@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Rooms {% endblock title %}
+
+{% block content %}
+    <h1>Rooms</h1>
+    {{ object_list }}
+    <ul>
+        {% for room in object_list %}
+            <li>
+                <a href="rooms/{{ room.id }}">№ {{ room.number }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% include "forms/room_form.html" %}
+{% endblock content %}
