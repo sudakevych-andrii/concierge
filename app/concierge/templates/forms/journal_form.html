@@ -2,7 +2,7 @@
     {% csrf_token %}
     <div>
         <label for="tenant_id">Tenant</label>
-        <select name="tenant" id="tenant_id">
+        <select name="tenant_id" id="tenant_id">
             <option value="" selected disabled hidden>Choose tenant</option>
             {% for tenant in tenants %}
                 <option value="{{ tenant.id }}">{{ tenant.first_name }} {{ tenant.last_name }}</option>
@@ -19,8 +19,8 @@
         </select>
     </div>
     <div>
-        <label for="guests_count">Tenants count</label>
-        <input type="text" id="guests_count" name="tenants_count">
+        <label for="tenants_count">Tenants count</label>
+        <input type="text" id="tenants_count" name="tenants_count">
     </div>
     <input type="submit"/>
 </form>

@@ -90,13 +90,8 @@ class JournalView(ListView):
 class JournalFormView(FormView):
     template_name = 'forms/journal_form.html'
     form_class = JournalForm
-    success_url = 'core/journal'
-
-    def form_invalid(self, form):
-        print('11111111')
-        return super(JournalFormView, self).form_invalid(form)
+    success_url = '/core/journal'
 
     def form_valid(self, form):
-        print('222222')
         form.save_journal()
         return super(JournalFormView, self).form_valid(form)

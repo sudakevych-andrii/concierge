@@ -33,12 +33,12 @@ class RoomForm(Form):
 
 
 class JournalForm(Form):
-    room_id = IntegerField()
     tenant_id = IntegerField()
+    room_id = IntegerField()
 
     def save_journal(self):
-        room = Room.objects.get(id=int(self.data['room_id']))
         tenant = Tenant.objects.get(id=int(self.data['tenant_id']))
+        room = Room.objects.get(id=int(self.data['room_id']))
         tenants_count = int(self.data['tenants_count'])
-        journal = Journal(room_id=room, tenant_id=tenant, check_in_date=timezone.now(), tenants_count=tenants_count)
+        journal = Journal(room=room, tenant=tenant, check_in_date=timezone.now(), tenants_count=tenants_count)
         journal.save()
