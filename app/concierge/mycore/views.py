@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views.generic import FormView, ListView, DetailView
 
 from .models import Tenant, Room, Journal
@@ -31,7 +32,7 @@ class TenantView(DetailView):
 class TenantFormView(FormView):
     template_name = 'forms/tenant_form.html'
     form_class = TenantForm
-    success_url = '/core/tenants'
+    success_url = reverse_lazy('core:tenants')
 
     def form_valid(self, form):
         form.save_tenant()
@@ -64,7 +65,7 @@ class RoomView(DetailView):
 class RoomFormView(FormView):
     template_name = 'forms/room_form.html'
     form_class = RoomForm
-    success_url = '/core/rooms'
+    success_url = reverse_lazy('core:rooms')
 
     def form_valid(self, form):
         form.save_room()
@@ -90,7 +91,7 @@ class JournalView(ListView):
 class JournalFormView(FormView):
     template_name = 'forms/journal_form.html'
     form_class = JournalForm
-    success_url = '/core/journal'
+    success_url = reverse_lazy('core:journal')
 
     def form_valid(self, form):
         form.save_journal()

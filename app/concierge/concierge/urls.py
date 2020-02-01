@@ -32,6 +32,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('healthcheck/', health_check, name='health_check'),
     path('', TemplateView.as_view(template_name='index.html')),
-    path('core/', include('mycore.urls'))
+    path('core/', include('mycore.urls', namespace='core'))
 ] + static_patterns
 
