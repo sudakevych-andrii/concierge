@@ -1,0 +1,26 @@
+<form method="post" action="journal/create">
+    {% csrf_token %}
+    <div>
+        <label for="tenant_id">Tenant</label>
+        <select name="tenant_id" id="tenant_id">
+            <option value="" selected disabled hidden>Choose tenant</option>
+            {% for tenant in tenants %}
+                <option value="{{ tenant.id }}">{{ tenant.first_name }} {{ tenant.last_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="room_id">Room</label>
+        <select name="room_id" id="room_id">
+            <option value="" selected disabled hidden>Choose room</option>
+            {% for room in rooms %}
+                <option {% if not room.is_free %} disabled {% endif %} value="{{ room.id }}">{{ room.number }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="tenants_count">Tenants count</label>
+        <input type="text" id="tenants_count" name="tenants_count">
+    </div>
+    <input type="submit"/>
+</form>

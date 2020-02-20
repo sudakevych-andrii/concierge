@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Tenants {% endblock title %}
+
+{% block content %}
+    <h1>Tenants</h1>
+    <ul>
+        {% for tenant in object_list %}
+            <li>
+                <a href="tenants/{{ tenant.id }}">{{ tenant.first_name }} {{ tenant.last_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% include "forms/tenant_form.html" %}
+{% endblock content %}

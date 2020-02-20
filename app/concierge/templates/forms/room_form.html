@@ -1,0 +1,12 @@
+<form method="post" action="rooms/create">
+    {% csrf_token %}
+    <div>
+        <label for="number">Number: </label>
+        <input type="text" id="number" name="number">
+    </div>
+    <div>
+        <label for="max_tenants">Max tenants count: </label>
+        <input type="text" id="max_tenants" name="max_tenants">
+    </div>
+    <input type="submit">
+</form>

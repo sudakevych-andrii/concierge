@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Room № {{ room.number }} {% endblock title %}
+
+{% block content %}
+    <div>Room № {{ room.number }}</div>
+    <div>Max count of tenants: {{ room.max_tenants }}</div>
+    <div>
+        {% if room.is_free %}
+            <div>Room is free</div>
+        {% else %}
+            <div>Room is occupied</div>
+            <div>
+                <span>Tenant:</span>
+                <a href="/core/tenants/{{ room.tenant.id }}">{{ room.tenant.first_name }} {{ room.tenant.last_name }}</a>
+            </div>
+        {% endif %}
+    </div>
+    <hr>
+    <a href="/core/rooms">Back to rooms list</a>
+{% endblock content %}

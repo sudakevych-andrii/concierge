@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db.models import Model, CASCADE, IntegerField, CharField, ForeignKey, BooleanField, DateTimeField, \
-    TextField, SET_NULL
+    TextField, SET_NULL, DateField
 
 MAX_NAME_LENGTH = 80
 
@@ -8,15 +8,8 @@ MAX_NAME_LENGTH = 80
 class Tenant(Model):
     first_name = CharField(max_length=MAX_NAME_LENGTH)
     last_name = CharField(max_length=MAX_NAME_LENGTH)
-
-    def full_name(self):
-        vals = ' '.join([self.first_name or '', self.last_name or ''])
-        if vals.strip():
-            return vals
-        return self.pk
-
-    def __str__(self):
-        return self.full_name()
+    date_of_birth = DateField(blank=True, null=True, db_index=True)
+    phone = CharField(max_length=20, blank=True, null=True)
 
 
 class Room(Model):
