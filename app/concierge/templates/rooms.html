@@ -7,7 +7,7 @@
     <ul>
         {% for room in object_list %}
             <li>
-                <a href="rooms/{{ room.id }}">№ {{ room.number }}</a>
+                <a href="{% url 'core:room' room.id %}">№ {{ room.number }}</a>
             </li>
         {% endfor %}
     </ul>

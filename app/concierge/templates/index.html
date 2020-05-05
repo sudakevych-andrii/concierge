@@ -5,8 +5,8 @@
 {% block content %}
     <h1>Home</h1>
     <ul class="links">
-        <li><a href="core/tenants">Tenants</a></li>
-        <li><a href="core/rooms">Rooms</a></li>
-        <li><a href="core/journal">Journal</a></li>
+        <li><a href="{% url 'core:tenants' %}">Tenants</a></li>
+        <li><a href="{% url 'core:rooms' %}">Rooms</a></li>
+        <li><a href="{% url 'core:journal' %}">Journal</a></li>
     </ul>
 {% endblock content %}

@@ -11,5 +11,5 @@
         <div>Phone: {{ tenant.phone }}</div>
     {% endif %}
     <hr>
-    <a href="/core/tenants">Back to tenants list</a>
+    <a href="{% url 'core:tenants' %}">Back to tenants list</a>
 {% endblock content %}
