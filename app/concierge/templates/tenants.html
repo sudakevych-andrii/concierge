@@ -7,7 +7,7 @@
     <ul>
         {% for tenant in object_list %}
             <li>
-                <a href="tenants/{{ tenant.id }}">{{ tenant.first_name }} {{ tenant.last_name }}</a>
+                <a href="{% url 'core:tenant' tenant.id %}">{{ tenant.first_name }} {{ tenant.last_name }}</a>
             </li>
         {% endfor %}
     </ul>

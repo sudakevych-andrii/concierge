@@ -7,8 +7,8 @@
     <ul>
         {% for journal in object_list %}
             <li>
-                <div>Name: <a href="/core/tenants/{{ journal.tenant.id }}">{{ journal.tenant.first_name }} {{ journal.tenant.last_name }}</a></div>
-                <div>Room number: <a href="/core/rooms/{{ journal.room.id }}">{{ journal.room.number }}</a></div>
+                <div>Name: <a href="{% url 'core:tenant' journal.tenant.id %}">{{ journal.tenant.first_name }} {{ journal.tenant.last_name }}</a></div>
+                <div>Room number: <a href="{% url 'core:room' journal.room.id %}">{{ journal.room.number }}</a></div>
                 <div>Tenants count: {{ journal.tenants_count }}</div>
                 <div>Check in date: {{ journal.check_in_date }}</div>
             </li>

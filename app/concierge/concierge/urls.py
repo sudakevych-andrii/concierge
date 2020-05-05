@@ -31,7 +31,7 @@ static_patterns = static(settings.MEDIA_URL,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('healthcheck/', health_check, name='health_check'),
-    path('', TemplateView.as_view(template_name='index.html')),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('core/', include('mycore.urls', namespace='core'))
 ] + static_patterns
 
